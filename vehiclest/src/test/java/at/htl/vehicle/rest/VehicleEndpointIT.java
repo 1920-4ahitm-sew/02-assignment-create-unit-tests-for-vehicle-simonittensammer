@@ -50,4 +50,13 @@ public class VehicleEndpointIT {
         assertThat(dedicatedVehicle.getString("brand"), containsString("43"));
         assertThat(dedicatedVehicle.getString("brand"), equalTo("Opel 43"));
     }
+
+    @Test
+    public void deleteVehicle() {
+        Response deleteResponse = this.target
+                .path("42")
+                .request(MediaType.APPLICATION_JSON)
+                .delete();
+        assertThat(deleteResponse.getStatus(), is(204));
+    }
 }
