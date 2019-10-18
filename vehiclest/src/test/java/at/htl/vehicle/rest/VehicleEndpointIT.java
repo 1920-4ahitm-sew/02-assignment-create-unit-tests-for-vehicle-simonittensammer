@@ -33,7 +33,7 @@ public class VehicleEndpointIT {
     }
 
     @Test
-    public void fetchVehicleJSON() {
+    public void fetchVehicleJson() {
         Response response = (Response) this.target.request(MediaType.APPLICATION_JSON).get();
         JsonArray allTodos = response.readEntity(JsonArray.class);
         JsonObject vehicle = allTodos.getJsonObject(0);
