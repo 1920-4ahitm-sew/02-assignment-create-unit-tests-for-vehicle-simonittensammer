@@ -40,4 +40,14 @@ public class VehicleEndpointIT {
         assertThat(vehicle.getString("brand"), equalTo("Opel 42"));
         assertThat(vehicle.getString("type"), startsWith("Commodore"));
     }
+
+    @Test
+    public void fetchVehicleById() {
+        JsonObject dedicatedVehicle = this.target
+                .path("43")
+                .request(MediaType.APPLICATION_JSON)
+                .get(JsonObject.class);
+        assertThat(dedicatedVehicle.getString("brand"), containsString("43"));
+        assertThat(dedicatedVehicle.getString("brand"), equalTo("Opel 43"));
+    }
 }
